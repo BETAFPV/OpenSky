@@ -189,7 +189,37 @@ uint8_t frsky_bind_jumper_set(void) {
 
 void frsky_do_bind(void) {
     debug("frsky: do bind\n"); debug_flush();
+ 	led_green_on();
+        delay_ms(300);
+        wdt_reset();
+        led_green_off();// 1
+        delay_ms(100);
+        wdt_reset();
+        led_green_on();
+        delay_ms(100);
+        wdt_reset();
+        led_green_off();// 2
+        delay_ms(100);
+        wdt_reset();
 
+        led_green_on();
+        delay_ms(300);
+        wdt_reset();
+        led_green_off();// 1
+        delay_ms(100);
+        wdt_reset();
+        led_green_on();
+        delay_ms(100);
+        wdt_reset();
+        led_green_off();// 2
+        delay_ms(100);
+        wdt_reset();
+        led_green_on();
+        delay_ms(100);
+        wdt_reset();
+        led_green_off();// 3
+        delay_ms(100);
+        wdt_reset();
     // set txid to bind channel
     storage.frsky_txid[0] = 0x03;
 
@@ -201,7 +231,6 @@ void frsky_do_bind(void) {
 
     // set up leds:frsky_txid
     led_red_off();
-    led_green_on();
 
     // start autotune:
     frsky_autotune();
@@ -217,15 +246,14 @@ void frsky_do_bind(void) {
 
     // done, end up in fancy blink code
     debug("frsky: finished binding. please reset\n");
-    led_green_on();
 
     while (1) {
-        led_red_on();
-        delay_ms(500);
+        led_green_on();
+        delay_ms(100);
         wdt_reset();
 
-        led_red_off();
-        delay_ms(500);
+        led_green_off();
+        delay_ms(100);
         wdt_reset();
     }
 }
