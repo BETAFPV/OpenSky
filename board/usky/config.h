@@ -17,14 +17,14 @@
 
 
 // DBG DATA
-#define BIND_PORT P2
-#define BIND_PIN  1
+#define BIND_PORT P1
+#define BIND_PIN  6
 
 // leds
 #define LED_GREEN_PORT P1
-#define LED_GREEN_PIN  1
-#define LED_RED_PORT P2
-#define LED_RED_PIN  3
+#define LED_GREEN_PIN  3
+#define LED_RED_PORT P1
+#define LED_RED_PIN  1
 
 // DEBUG
 #define DEBUG_UART USART0_P0
@@ -37,7 +37,7 @@
 // Note: default/futaba is INVERTED=1! (use this for a cc3d etc)
 //       inverted     => idle = LOW
 //       non inverted => idle = high
-// #define SBUS_INVERTED
+#define SBUS_INVERTED
 
 // PPM (only used if sbus is disabled)
 // invert SBUS output (normal is non inverted)
