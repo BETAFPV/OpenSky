@@ -735,6 +735,7 @@ void frsky_main(void) {
             // diversity toggle on missing frame
             if (!packet_received) {
                 led_red_on();
+		led_green_on();
                 cc25xx_switch_antenna();
             }
 
@@ -814,7 +815,7 @@ void frsky_main(void) {
             // valid packet?
             if (FRSKY_VALID_PACKET(frsky_packet_buffer)) {
                 // ok, valid packet for us
-                led_green_on();
+                led_green_off();
 
                 // we hop to the next channel in 0.5ms
                 // afterwards hops are in 9ms grid again
