@@ -78,7 +78,8 @@ void frsky_init(void) {
     // init frsky registersttings for cc2500
     frsky_configure();
 
-    if (frsky_bind_jumper_set()) {
+    if (frsky_bind_jumper_set() || storage.first_Bind != 0) {
+ 
         // do binding
         frsky_do_bind();
         // binding will never return/continue
@@ -240,7 +241,7 @@ void frsky_do_bind(void) {
 
     // important: stop RF interrupts:
     cc25xx_disable_rf_interrupt();
-
+    storage.first_Bind =0;//record BIND
     // save to persistant storage:
     storage_write_to_flash();
 

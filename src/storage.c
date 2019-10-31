@@ -86,7 +86,7 @@ void storage_read_from_flash(void) {
         for (i = 0; i < FRSKY_HOPTABLE_SIZE; i++) {
             storage.frsky_hop_table[i] = storage_default_hoptable[i];
         }
-
+	storage.first_Bind = storage_default_hoptable[i];
         // store settings
         storage_write_to_flash();
     }

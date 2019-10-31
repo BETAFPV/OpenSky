@@ -37,6 +37,7 @@ typedef struct {
     uint8_t frsky_txid[2];
     uint8_t frsky_hop_table[FRSKY_HOPTABLE_SIZE];
     int8_t  frsky_freq_offset;
+    uint8_t first_Bind;
     // add further data here...
 } STORAGE_DESC;
 
