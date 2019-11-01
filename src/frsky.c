@@ -250,11 +250,11 @@ void frsky_do_bind(void) {
 
     while (1) {
         led_green_on();
-        delay_ms(100);
+        delay_ms(50);
         wdt_reset();
 
         led_green_off();
-        delay_ms(100);
+        delay_ms(50);
         wdt_reset();
     }
 }
@@ -345,7 +345,7 @@ void frsky_autotune(void) {
 
         // debug("tune "); debug_put_int8(storage.frsky_freq_offset);
         // debug_put_newline(); debug_flush();
-
+ led_green_off();
         while ((!timeout_timed_out()) && (!done)) {
             // handle any ovf conditions
             frsky_handle_overflows();
